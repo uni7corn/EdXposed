@@ -9,6 +9,7 @@ import com.elderdrivers.riru.xposed.core.HookMethodResolver;
 import com.elderdrivers.riru.xposed.proxy.yahfa.BlackWhiteListProxy;
 import com.elderdrivers.riru.xposed.proxy.yahfa.NormalProxy;
 import com.elderdrivers.riru.xposed.util.Utils;
+import com.swift.sandhook.xposedcompat.methodgen.SandHookXposedBridge;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -26,6 +27,7 @@ public class Main implements KeepAll {
     static {
         init(Build.VERSION.SDK_INT);
         HookMethodResolver.init();
+        SandHookXposedBridge.setLibPath();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////

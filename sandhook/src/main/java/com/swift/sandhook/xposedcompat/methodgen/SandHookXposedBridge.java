@@ -1,8 +1,10 @@
 package com.swift.sandhook.xposedcompat.methodgen;
 
+import android.os.Process;
 import android.os.Trace;
 
 import com.swift.sandhook.SandHook;
+import com.swift.sandhook.SandHookConfig;
 import com.swift.sandhook.wrapper.HookWrapper;
 import com.swift.sandhook.xposedcompat.XposedCompat;
 import com.swift.sandhook.xposedcompat.hookstub.HookMethodEntity;
@@ -131,6 +133,14 @@ public final class SandHookXposedBridge {
                 newArgs[i] = args[i - 1];
             }
             return callBackup.invoke(null, newArgs);
+        }
+    }
+
+    public static void setLibPath() {
+        if (Process.is64Bit()) {
+            SandHookConfig.libSandHookPath = "/system/lib64/libsandhook.edxp.so";
+        } else {
+            SandHookConfig.libSandHookPath = "/system/lib/libsandhook.edxp.so";
         }
     }
 }

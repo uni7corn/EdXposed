@@ -11,6 +11,7 @@ import de.robv.android.xposed.XposedBridge;
 
 public class XposedCompat {
 
+    // TODO initialize these variables
     public static File cacheDir;
     public static volatile ClassLoader classLoader;
 
